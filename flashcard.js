@@ -18,6 +18,21 @@ document.getElementById("close_card_box").addEventListener("click", () => {
   document.getElementById("create_card").style.display = "none";
 });
 
+document.getElementById("upload_tsv").addEventListener("click", () => {
+  const fileInput = document.getElementById("file_input");
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const text = e.target.result;
+      processTSV(text);
+    };
+    reader.readAsText(file);
+  } else {
+    alert("Please select a TSV file to upload.");
+  }
+});
+
 flashcardMaker = (text, delThisIndex) => {
   const flashcard = document.createElement("div");
   const question = document.createElement('h2');
@@ -69,4 +84,20 @@ addFlashcard = () => {
   flashcardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
   question.value = "";
   answer.value = "";
+}
+
+processTSV = (tsvData) => {
+  const rows = tsvData.trim().split("\n");
+  rows.forEach(row => {
+    const [question, answer] = row.split("\t");
+    if (question && answer) {
+      let flashcard_info = {
+        'my_question': question,
+        'my_answer': answer
+      }
+      contentArray.push(flashcard_info);
+      flashcardMaker(flashcard_info, contentArray.length - 1);
+    }
+  });
+  localStorage.setItem('items', JSON.stringify(contentArray));
 }
