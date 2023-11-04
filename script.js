@@ -1,7 +1,7 @@
 // Function to call ChatGPT with the provided notes and prompt
 async function callChatGPT(notes) {
     try {
-        const apiKey = "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";
+        const apiKey = "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";
 
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
