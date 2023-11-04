@@ -1,72 +1,42 @@
-var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// Function to call ChatGPT with the provided notes and prompt
+async function callChatGPT(notes) {
+    try {
+        const apiKey = "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";
 
-document.getElementById("save_card").addEventListener("click", () => {
-  addFlashcard();
-});
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey, // Replace with your OpenAI API key
+            },
+            body: JSON.stringify({
+                model: "gpt-4",
+                messages: [{"role": "user", "content": `Make term-definition pairs out of these in the form of "term-definition" akin to what you would see in a Quizlet flashcard set; ensure that every pair in the format term - definition with no other punctuation: ${notes}`}],
+                max_tokens: 500, // Adjust the number of tokens as needed
+            }),
+        });
 
-document.getElementById("delete_cards").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-  contentArray = [];
-});
-
-document.getElementById("show_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "block";
-});
-
-document.getElementById("close_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "none";
-});
-
-flashcardMaker = (text, delThisIndex) => {
-  const flashcard = document.createElement("div");
-  const question = document.createElement('h2');
-  const answer = document.createElement('h2');
-  const del = document.createElement('i');
-
-  flashcard.className = 'flashcard';
-
-  question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
-  question.textContent = text.my_question;
-
-  answer.setAttribute("style", "text-align:center; display:none; color:red");
-  answer.textContent = text.my_answer;
-
-  del.className = "fas fa-minus";
-  del.addEventListener("click", () => {
-    contentArray.splice(delThisIndex, 1);
-    localStorage.setItem('items', JSON.stringify(contentArray));
-    window.location.reload();
-  })
-
-  flashcard.appendChild(question);
-  flashcard.appendChild(answer);
-  flashcard.appendChild(del);
-
-  flashcard.addEventListener("click", () => {
-    if(answer.style.display == "none")
-      answer.style.display = "block";
-    else
-      answer.style.display = "none";
-  })
-
-  document.querySelector("#flashcards").appendChild(flashcard);
+        const data = await response.json();
+        return data.choices[0].message.content;
+    } catch (error) {
+        console.error('Error calling ChatGPT:', error);
+        return 'An error occurred. Please try again later.';
+    }
 }
 
-contentArray.forEach(flashcardMaker);
+document.addEventListener('DOMContentLoaded', () => {
+    const notesInput = document.getElementById('notes');
+    const convertButton = document.getElementById('convertBtn');
+    const resultDiv = document.getElementById('result');
 
-addFlashcard = () => {
-  const question = document.querySelector("#question");
-  const answer = document.querySelector("#answer");
+    convertButton.addEventListener('click', async () => {
+        const notes = notesInput.value;
 
-  let flashcard_info = {
-    'my_question' : question.value,
-    'my_answer'  : answer.value
-  }
-
-  contentArray.push(flashcard_info);
-  localStorage.setItem('items', JSON.stringify(contentArray));
-  flashcardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
-  question.value = "";
-  answer.value = "";
-}
+        if (notes.trim() === '') {
+            resultDiv.textContent = 'Please enter your class notes.';
+        } else {
+            const flashcards = await callChatGPT(notes);
+            resultDiv.innerHTML = `<p>${flashcards}</p>`;
+        }
+    });
+});
