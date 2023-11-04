@@ -36,11 +36,6 @@
           <div>
             <button id="save_card">Save</button> <button id="close_card_box">Close</button>
           </div>
-          <div>
-            <label for="file_input">Upload TSV File:</label>
-            <input type="file" id="file_input" accept=".tsv">
-            <button id="upload_tsv">Upload</button>
-          </div>
         </div>
       </div>
     </section>
@@ -52,7 +47,10 @@
     </section>
 
   </main>
+
+    <input type="file" id="tsvFileInput" accept=".tsv" style="display: none;">
+    <button id="uploadTsvButton">Upload TSV File</button>
   
-  <script src="flashcard.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@ button:hover{
   margin: auto;
 }
 
-header{background-color: #fff;}
+header{background-color: white;}
 
 #header{
   display: flex;
@@ -38,12 +38,23 @@ header{background-color: #fff;}
   align-items: center;
   min-height: 70px;
   padding: 0 20px;
-  background: #fff;
+  background: #fffffff0;
 }
 
 #header button{
   font-family: inherit;
   border: 1px solid gray;
+}
+
+#tsvFileInput {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#uploadTsvButton {
+  display: block;
+  margin: 0 auto;
 }
 
 #create_card{
@@ -61,12 +72,27 @@ header{background-color: #fff;}
   text-align: center;
 }
 
+.flashcard h2 {
+  font-size: 1rem;
+  color: black; 
+}
+
 #create_card textarea{
   width: 100%;
   border-radius: 5px;
   font-family: inherit;
   border: 1px solid lightgray;
   resize: none;
+}
+
+input[type="text"],
+textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-family: inherit;
+  resize: none;
+  margin: 5px 0; /* Add margin to create space around the input */
 }
 
 #create_card button{width: fit-content;}
