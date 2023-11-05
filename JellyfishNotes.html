@@ -1,21 +1,59 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Jellyfish Notes</title>
-        <h1 style="background-color:Gold; text-align:center">Jellyfish Notes</h1>
-    </head>
-    <body style="background-color:DodgerBlue;">
-        <img style="width: 750px; height: 400px" src = "https://i.pinimg.com/originals/6d/44/6f/6d446f87763fb107db4d6f8bf37a6f18.gif">
-        <div style="text-align: right; margin-top: -420px;"> 
-            <h1 style="margin-left: -130px; margin-right: 130px;">Please Enter The Text Here</h1>
-            <form action="/action_page.php">
-            <input style="width: 600px; height: 300px; font-size: 14pt;" type="text" id="fname" name="fname"><br><br>
-            <input style="margin-left: -260px; margin-right: 260px;" type="submit" value="Convert">
-          </form> 
-        </div> 
-        <img style="width: 1450px; height: 260px; margin-top: 40px;" src = "background.jpg">
-        <p style="position: absolute; top: 560px; width: 800px; padding-left: 600px; color: Gold; font-size: 60px;">Follow Jelly To Next Page >>>><br>
-        </p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="Jellyfish.png" />
+    <link rel="stylesheet" href="style.css">
+    <title>Jellyfish Notes</title>
+</head>
+<body style="background-color: lightblue;">
+    <div id="header">
+        <h1>Jellyfish Notes</h1>
+    </div>
+    <img src="big_jellyifish.png">
+    <div style="text-align: center; margin-top: 20px;">
+        <h2>Please Enter The Text Here</h2>
+        <form action="/action_page.php">
+            <input style="width: 600px; height: 200px; font-size: 14pt;" type="text" id="fname" name="fname"><br><br>
+             <input type="file" id="tsvFileInput" accept=".tsv" style="display: none;">
+             <button id="convert" style="margin-bottom: 20px;">Convert</button>
+             <button id="uploadTsvButton" style="margin-bottom: 20px;">Upload TSV File</button>
+        </form>
+    </div>
+
+    <main>
+        <header>
+            <div class="container">
+                    <div>
+                        <button id="show_card_box">Add Card</button>
+                        <button id="delete_cards">Delete All Cards</button>
+                    </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+                <div id="create_card">
+                    <h2>Create Flashcard</h2>
+                    <label for="question">Term</label>
+                    <textarea id="question" maxlength="280"></textarea>
+                    <label for="answer" maxlength="280">Definition</label>
+                    <br>
+                    <textarea id="answer"></textarea>
+                    <div>
+                        <button id="save_card">Save</button> <button id="close_card_box">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="flashcards"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
