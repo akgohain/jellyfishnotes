@@ -80,6 +80,16 @@ header{background-color: #fff;}
   resize: none;
 }
 
+input[type="text"],
+textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-family: inherit;
+  resize: none;
+  margin: 5px 0; /* Add margin to create space around the input */
+}
+
 #create_card button{width: fit-content;}
 
 #flashcards{
@@ -106,7 +116,21 @@ header{background-color: #fff;}
   border-radius: 3vh;
 }
 
+.row {
+  display: flex;
+}
+
 .flashcard h2{font-size: 1rem;}
+
+img {
+  max-width: 200px;
+  scale: auto;
+  float: left;
+}
+
+.img1 {
+  transform: scaleX(-1);
+}
 
 .fa-minus{
   top: 3%;
