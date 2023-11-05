@@ -31,3 +31,7 @@ button:hover {
 #result {
     margin: 20px 0;
 }
+
+.centered {
+    margin: auto;
+}
