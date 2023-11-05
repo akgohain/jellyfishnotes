@@ -17,13 +17,18 @@
         <div id="header">
           <h1>Jellyfish Notes</h1>
           <div>
-            <button id="show_card_box">Add Card</button>
-            <button id="delete_cards">Delete All Cards</button>
+            <button id="delete_cards">Clear</button>
           </div>
         </div>
       </div>
     </header>
-    
+
+
+    <textarea id="notes" placeholder="Enter your class notes here"></textarea>
+    <button id="test_button">test</button>
+    <div id="result"></div>
+
+
     <section>
       <div class="container">
         <div id="create_card">
@@ -39,7 +44,11 @@
         </div>
       </div>
     </section>
-
+    <div id=>
+      <label for="file_input">Upload TSV File:</label>
+      <input type="file" id="file_input" accept=".tsv">
+      <button id="upload_tsv">Upload</button>
+    </div>
     <section>
       <div class="container">
         <div id="flashcards"></div>
@@ -48,6 +57,6 @@
 
   </main>
   
-  <script src="script.js"></script>
+  <script src="flashcard.js"></script>
 </body>
 </html>
