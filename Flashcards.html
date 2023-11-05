@@ -6,10 +6,11 @@
   <link rel="shortcut icon" type="image/png" href="Jellyfish.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gradient.css">
   <title>Jellyfish Notes</title>
 </head>
 <body>
-
+  <div class = "background-container">
   <main>
     
     <header>
@@ -17,13 +18,28 @@
         <div id="header">
           <h1>Jellyfish Notes</h1>
           <div>
-            <button id="show_card_box">Add Card</button>
-            <button id="delete_cards">Delete All Cards</button>
+            <button id="delete_cards">Clear</button>
           </div>
         </div>
       </div>
     </header>
-    
+    <div>
+      <div>
+        <textarea id="notes" placeholder="Enter your class notes here"></textarea>
+        <button id="test_button">test</button>
+      </div>
+      <br>
+      <div class="file-upload-container">
+        <label for="file_input" class="file-upload-label">Upload TSV File</label>
+        <input type="file" id="file_input" accept=".tsv" class="file-upload-input">
+        <button id="upload_tsv">Upload</button>
+      </div>
+    </div>
+    <br>
+    <div>
+      <h1>Flashcards: </h1>
+    </div>
+
     <section>
       <div class="container">
         <div id="create_card">
@@ -47,10 +63,7 @@
     </section>
 
   </main>
-
-    <input type="file" id="tsvFileInput" accept=".tsv" style="display: none;">
-    <button id="uploadTsvButton">Upload TSV File</button>
   
-  <script src="script.js"></script>
+  <script src="flashcard.js"></script>
 </body>
 </html>
