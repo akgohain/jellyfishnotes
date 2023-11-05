@@ -6,12 +6,6 @@
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  background: lightblue;
-}
-
 button{
   padding: 8px;
   outline: none;
@@ -30,7 +24,24 @@ button:hover{
   margin: auto;
 }
 
-header{background-color: white;}
+div {
+  display: grid;
+  place-items: center; /* Horizontally and vertically center */
+}
+
+textarea {
+  width: 50%;
+}
+
+header{background-color: #fff;}
+
+#notes{
+  width: 50vh;
+  height: 10vh;
+  align-self: center;
+  border: 1px solid #ccc;
+  margin: 2%;
+}
 
 #header{
   display: flex;
@@ -38,23 +49,12 @@ header{background-color: white;}
   align-items: center;
   min-height: 70px;
   padding: 0 20px;
-  background: #fffffff0;
+  background: #fff;
 }
 
 #header button{
   font-family: inherit;
   border: 1px solid gray;
-}
-
-#tsvFileInput {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#uploadTsvButton {
-  display: block;
-  margin: 0 auto;
 }
 
 #create_card{
@@ -72,27 +72,12 @@ header{background-color: white;}
   text-align: center;
 }
 
-.flashcard h2 {
-  font-size: 1rem;
-  color: black; 
-}
-
 #create_card textarea{
   width: 100%;
   border-radius: 5px;
   font-family: inherit;
   border: 1px solid lightgray;
   resize: none;
-}
-
-input[type="text"],
-textarea {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  font-family: inherit;
-  resize: none;
-  margin: 5px 0; /* Add margin to create space around the input */
 }
 
 #create_card button{width: fit-content;}
@@ -113,10 +98,12 @@ textarea {
   height: 200px;
   word-wrap: break-word;
   margin: 10px; 
-  background:#fff;
+  background: rgba(255, 228, 187, 0.81);
+  background-image: "grainy.png";
   cursor: pointer;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
   position: relative;
+  border-radius: 3vh;
 }
 
 .flashcard h2{font-size: 1rem;}
@@ -156,4 +143,27 @@ textarea {
 
   .flashcard{width: 100%;}
 
+}
+
+.file-upload-container {
+  text-align: center; 
+}
+
+.file-upload-label {
+  display: inline-block;
+  background-color: #007bff; 
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.file-upload-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
