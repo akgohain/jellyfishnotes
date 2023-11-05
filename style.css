@@ -15,22 +15,79 @@ button{
   background: whitesmoke;
 }
 
+body{
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  position: relative;
+}
+
 button:hover{
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container{
-  width: 1280px;
-  margin: auto;
+.seashell {
+  max-width: 20%;
+  max-height: 20%;
 }
 
-div {
-  display: grid;
-  place-items: center; /* Horizontally and vertically center */
+.header-text {
+  font-size: 70px;
+}
+
+.flashcards-header {
+  color: white;
+  font-size: 50px;
+}
+
+#sandy-head {
+  position: absolute;
+  bottom: 9vh;  
+  left: 0;    
+  width: 100%; 
+  height: auto; 
+  z-index: -44;
+}
+
+.container{
+  width: 100vw;
+  margin: auto;
 }
 
 textarea {
   width: 50%;
+}
+
+.row {
+  display: flex;
+}
+
+.img1, .img2 {
+  flex: 1;
+  text-align: center; /* Center the images horizontally */
+}
+
+.img1 {
+  transform: scaleX(-1);
+}
+
+img {
+  max-width: 200px;
+  scale: auto;
+}
+
+.or-text {
+  font-size: 40px;
+  color: white;
+}
+
+input[type="text"],
+textarea {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-family: inherit;
+  resize: none;
+  margin: 5px 0; /* Add margin to create space around the input */
 }
 
 header{background-color: #fff;}
@@ -43,13 +100,16 @@ header{background-color: #fff;}
   margin: 2%;
 }
 
-#header{
+header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; 
+  align-items: center; 
   min-height: 70px;
   padding: 0 20px;
-  background: #fff;
+  background-color: blanchedalmond;
+  width: 100%;
+  position: relative;
+  overflow: visible;
 }
 
 #header button{
@@ -65,10 +125,11 @@ header{background-color: #fff;}
   margin-top: 10px;
   background: whitesmoke;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+  color: green;
 }
 
 #create_card h2{
-  color: black;
+  color: green;
   text-align: center;
 }
 
@@ -76,6 +137,7 @@ header{background-color: #fff;}
   width: 100%;
   border-radius: 5px;
   font-family: inherit;
+  color: green;
   border: 1px solid lightgray;
   resize: none;
 }
@@ -112,7 +174,6 @@ header{background-color: #fff;}
   top: 3%;
   right: 2%;
   position: absolute;
-  color: #1a1a1a;
   transition: 0.3s ease-out;
 }
 
@@ -145,6 +206,12 @@ header{background-color: #fff;}
 
 }
 
+.header-button {
+  background-color: darkgray;
+  width: 12%;
+  padding: 2px;
+}
+
 .file-upload-container {
   text-align: center; 
 }
@@ -166,4 +233,10 @@ header{background-color: #fff;}
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+
+
+div {
+  display: grid;
+  place-items: center; /* Horizontally and vertically center */
 }

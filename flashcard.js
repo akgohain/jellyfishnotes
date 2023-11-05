@@ -24,10 +24,10 @@ flashcardMaker = (text, delThisIndex) => {
 
   flashcard.className = 'flashcard';
 
-  question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
+  question.setAttribute("style", "border-top:1px solid green; padding: 15px; margin-top:30px");
   question.textContent = text.my_question;
 
-  answer.setAttribute("style", "text-align:center; display:none; color:red");
+  answer.setAttribute("style", "text-align:center; display:none; color:green");
   answer.textContent = text.my_answer;
 
   del.className = "fas fa-minus";

@@ -12,23 +12,30 @@
 <body>
   <div class = "background-container">
   <main>
-    
     <header>
-      <div class="container">
-        <div id="header">
-          <h1>Jellyfish Notes</h1>
-          <div>
-            <button id="delete_cards">Clear</button>
-          </div>
-        </div>
+      <div class="center-header-content">
+        <h1 class="header-text">Jellyfish Notes</h1>
       </div>
+      <button id="delete_cards" class="header-button">Clear</button>
     </header>
     <div>
-      <div>
-        <textarea id="notes" placeholder="Enter your class notes here"></textarea>
-        <button id="test_button">test</button>
-      </div>
-      <br>
+      <div class="row">
+          <div class="img1">
+            <a href="https://openpuppies.com" target="_blank">
+            <img src="Jellyfish.png" style="margin-left: 50px;">
+            </a>
+          </div>
+          <div class="notes-container column">
+            <textarea id="notes" placeholder="Enter your class notes here"></textarea>
+            <button id="test_button">Convert!</button>
+          </div>
+          <div class="img2">
+            <a href="https://www.koalastothemax.com" target="_blank">
+            <img src="Jellyfish.png" style="margin-left: 50px;" >
+            </a>
+          </div>
+      </div> 
+      <h1 class="or-text">OR</h1>
       <div class="file-upload-container">
         <label for="file_input" class="file-upload-label">Upload TSV File</label>
         <input type="file" id="file_input" accept=".tsv" class="file-upload-input">
@@ -37,7 +44,7 @@
     </div>
     <br>
     <div>
-      <h1>Flashcards: </h1>
+      <h1 class="flashcards-header"><u>Flashcards:</u></h1>
     </div>
 
     <section>
