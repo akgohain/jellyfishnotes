@@ -88,7 +88,7 @@ processTSV = (tsvData) => {
 // Function to call ChatGPT with the provided notes and prompt
 async function callChatGPT(notes) {
   try {
-      const apiKey = "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";
+      const apiKey = "PUT YOUR API KEY IN";
 
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
